@@ -9,8 +9,8 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nordhealth/components": "latest",
-    "@nordhealth/css": "latest",
+    "@nordhealth/components": "*",
+    "@nordhealth/css": "*",
     "vue": "^3.2.31"
   },
   "devDependencies": {
