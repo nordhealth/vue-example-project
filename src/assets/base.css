@@ -1,22 +1,16 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html,
-body {
-  block-size: 100vh;
-  margin: 0;
-}
-
-body {
+:root {
   font-family: var(--n-font-family);
-  background-color: var(--n-color-surface-raised);
+  font-feature-settings: var(--n-font-features);
+  font-weight: var(--n-font-weight);
+  line-height: var(--n-line-height);
+  color: var(--n-color-text);
+  background-color: var(--n-color-surface);
 }
 
-#app {
-  block-size: 100%;
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-inline-size: 320px;
+  min-block-size: 100vh;
 }

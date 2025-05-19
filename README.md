@@ -1,12 +1,12 @@
 # vue-example-project
 
-This repo is an example of using [Vue 3](https://vuejs.org/) / [Vite](https://vitejs.dev/) along with [Nord Design System's](https://nordhealth.design/) [components](https://nordhealth.design/components/). Typescript is used, but this is not a necessity for using Vue and Nord together.
+This repo is an example of using [Vue 3](https://vuejs.org/) with [Vite](https://vitejs.dev/) along with [Nord Design System's](https://nordhealth.design/) [components](https://nordhealth.design/components/). TypeScript is used, but this is not a necessity for using Vue and Nord together.
 
-This repo can be forked as a starting point for new apps. However, you may wish to undertake the process yourself so that all dependencies are up to date, and you can choose which Vue features you would like to use. The commit history shows the steps taken to integrate Vue and Nord. Those steps are described next.
+This repo can be forked as a starting point for new apps. However, you may wish to undertake the process yourself so that all dependencies are up to date, and you can choose which Vue features you would like to use. The steps to integrate Vue and Nord are described next.
 
 ## Setting up a project from scratch
 
-First initialize a new Vue project. This will ask a series of questions, to determine your project name, and which vue features you would like to use:
+First initialize a new Vue project. This will ask a series of questions, to determine your project name, and which Vue features you would like to use:
 
 ```sh
 npm init vue@latest
@@ -45,23 +45,36 @@ In your `main.js` or `main.ts` file, import the Nord dependencies:
 
 ```js
 // main.js
-import { createApp } from "vue";
-import App from "./App.vue";
-import "@nordhealth/css";
-import "@nordhealth/components";
+import './assets/main.css';
 
-createApp(App).mount("#app");
+import { createApp } from 'vue';
+import App from './App.vue';
+
+import '@nordhealth/css';
+import '@nordhealth/components';
+
+createApp(App).mount('#app');
 ```
 
-This will ensure Nord styles are included in your app, and register all web components ready for use.
+This will ensure Nord styles are included in your app, and register all Web Components ready for use.
 
-Now everything is ready! In a component file (assuming use of single-file components and composition API), you can start using Nord:
+To get types and IntelliSense for Nord components in templates of Vue Single-File Components, add the following to your `tsconfig.json` in a TypeScript project, or `jsconfig.json` in a JavaScript project:
+
+```json
+{
+  "compilerOptions": {
+    "types": ["@nordhealth/components/lib/vue.d.ts"]
+  }
+}
+```
+
+Now everything is ready! In a component file (assuming use of Vue Single-File Components and Composition API), you can start using Nord:
 
 ```vue
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const name = ref("");
+const name = ref('');
 const count = ref(0);
 </script>
 
@@ -77,18 +90,11 @@ const count = ref(0);
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
 ## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
 ## Customize configuration
 
@@ -124,4 +130,4 @@ If you experience any issues while getting started with any of Nord’s tools, p
 
 ## Copyright
 
-Copyright © 2022 Nordhealth Ltd.
+Copyright © 2025 Nordhealth Ltd.

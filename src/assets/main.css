@@ -1,0 +1,8 @@
+@import './base.css';
+
+#app {
+  max-inline-size: 1280px;
+  margin: 0 auto;
+  padding: var(--n-space-xl);
+  text-align: center;
+}
